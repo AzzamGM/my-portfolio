@@ -72,7 +72,7 @@ export default function IntroSection({
             repeat: isExiting ? 0 : Infinity,
           }}
         >
-          Azzam's
+          Azzam&apos;s
         </motion.span>{" "}
         Portfolio
       </motion.p>

@@ -79,7 +79,7 @@ export default function ThirdSection({ isExiting = false, scrollDirection = "dow
         animate={isExiting ? { opacity: 0, y: -20 } : { opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
       >
-        Let's connect and discuss opportunities to work together!
+        Let&apos;s connect and discuss opportunities to work together!
       </motion.p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
