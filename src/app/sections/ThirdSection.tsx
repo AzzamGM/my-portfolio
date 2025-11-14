@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaPhone, FaEnvelope } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 interface ThirdSectionProps {
   isExiting?: boolean;
@@ -8,6 +9,17 @@ interface ThirdSectionProps {
 }
 
 export default function ThirdSection({ isExiting = false, scrollDirection = "down" }: ThirdSectionProps) {
+  const [animationsComplete, setAnimationsComplete] = useState(false);
+
+  useEffect(() => {
+    // Enable hover animations after initial animations complete
+    const timer = setTimeout(() => {
+      setAnimationsComplete(true);
+    }, 3000); // Adjust based on your longest animation delay
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const contactItems = [
     {
       icon: FaEnvelope,
@@ -88,8 +100,8 @@ export default function ThirdSection({ isExiting = false, scrollDirection = "dow
                 delay: isExiting ? 0 : 1.2 + (index * 0.2), 
                 ease: "easeOut" 
               }}
-              whileHover={{ scale: 1.02, y: -5 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={animationsComplete && !isExiting ? { scale: 1.02, y: -5 } : {}}
+              whileTap={animationsComplete && !isExiting ? { scale: 0.98 } : {}}
             >
               <motion.div
                 className="flex items-center space-x-4"
@@ -99,7 +111,7 @@ export default function ThirdSection({ isExiting = false, scrollDirection = "dow
               >
                 <motion.div
                   className={`p-3 rounded-full bg-gradient-to-r ${item.color} group-hover:shadow-lg transition-shadow duration-300`}
-                  whileHover={{ rotate: 5 }}
+                  whileHover={animationsComplete && !isExiting ? { rotate: 5 } : {}}
                 >
                   <IconComponent className="text-white text-xl" />
                 </motion.div>
