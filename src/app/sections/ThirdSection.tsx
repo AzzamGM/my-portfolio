@@ -154,7 +154,7 @@ export default function ThirdSection({ isExiting = false, scrollDirection = "dow
           }}
           transition={{ duration: 2, repeat: isExiting ? 0 : Infinity, delay: isExiting ? 0 : 3 }}
         >
-          I'm always excited to discuss new projects and opportunities!
+          I&apos;m always excited to discuss new projects and opportunities!
         </motion.p>
       </motion.div>
     </>
